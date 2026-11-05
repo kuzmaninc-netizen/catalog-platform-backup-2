@@ -1,0 +1,105 @@
+{
+  "name": "Merchant",
+  "type": "object",
+  "properties": {
+    "business_name": {
+      "type": "string",
+      "description": "Business name shown in the storefront header"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Unique storefront slug used in catalog.mk/<slug>"
+    },
+    "whatsapp_number": {
+      "type": "string",
+      "description": "WhatsApp number used for order messages (optional)"
+    },
+    "viber_number": {
+      "type": "string",
+      "description": "Viber number used for order messages"
+    },
+    "logo_url": {
+      "type": "string",
+      "description": "Public URL of the business logo/avatar"
+    },
+    "bio_text": {
+      "type": "string",
+      "description": "Short store description"
+    },
+    "city": {
+      "type": "string",
+      "description": "City badge shown on the storefront (e.g. \u0421\u043a\u043e\u043f\u0458\u0435)"
+    },
+    "instagram": {
+      "type": "string",
+      "description": "Instagram handle or URL"
+    },
+    "facebook_url": {
+      "type": "string",
+      "description": "Facebook profile or page URL (optional)"
+    },
+    "access_key": {
+      "type": "string",
+      "description": "Legacy device key. No longer used for authorization."
+    },
+    "owner_user_id": {
+      "type": "string",
+      "description": "Account id of the merchant that owns this store"
+    },
+    "owner_email": {
+      "type": "string",
+      "description": "Login email of the owning account (never exposed publicly)"
+    },
+    "owner_phone": {
+      "type": "string",
+      "description": "Normalized login phone key of the owning account (last 8 digits)"
+    },
+    "subscription_status": {
+      "type": "string",
+      "enum": [
+        "trial",
+        "pending",
+        "active",
+        "expired"
+      ],
+      "default": "trial",
+      "description": "Subscription state. 'expired' blocks the public storefront catalog"
+    },
+    "subscription_plan": {
+      "type": "string",
+      "enum": [
+        "starter",
+        "pro"
+      ],
+      "default": "starter",
+      "description": "Paid plan of the merchant"
+    },
+    "subscription_expires_at": {
+      "type": "string",
+      "description": "Last paid (or trial) day of the subscription, as YYYY-MM-DD"
+    }
+  },
+  "required": [
+    "business_name",
+    "slug",
+    "viber_number"
+  ],
+  "rls": {
+    "read": false,
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

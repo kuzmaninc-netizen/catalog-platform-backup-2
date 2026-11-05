@@ -1,0 +1,48 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "merchant_id": {
+      "type": "string",
+      "description": "Id of the merchant that owns this product"
+    },
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional product description"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price in Macedonian denars"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Public URL of the product image (max 800x800 WebP)"
+    },
+    "category_id": {
+      "type": "string",
+      "description": "Category record id"
+    },
+    "category_name": {
+      "type": "string",
+      "description": "Category name used for filtering and display"
+    },
+    "is_in_stock": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the product can be ordered"
+    },
+    "sort_order": {
+      "type": "number",
+      "description": "Display order in the storefront"
+    }
+  },
+  "required": [
+    "merchant_id",
+    "name",
+    "price"
+  ]
+}

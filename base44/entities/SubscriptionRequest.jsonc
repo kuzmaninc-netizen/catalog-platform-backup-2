@@ -1,0 +1,67 @@
+{
+  "name": "SubscriptionRequest",
+  "type": "object",
+  "properties": {
+    "merchant_id": {
+      "type": "string",
+      "description": "Merchant that asked for an activation invoice"
+    },
+    "business_name": {
+      "type": "string",
+      "description": "Business name at the time of the request"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Storefront slug of the merchant"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone the merchant wants to be contacted on"
+    },
+    "plan_requested": {
+      "type": "string",
+      "enum": [
+        "starter",
+        "pro"
+      ],
+      "default": "starter",
+      "description": "Plan the merchant wants to activate"
+    },
+    "message": {
+      "type": "string",
+      "description": "Free text note from the merchant"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "done"
+      ],
+      "default": "new",
+      "description": "Whether the platform owner handled the request"
+    }
+  },
+  "required": [
+    "merchant_id",
+    "business_name",
+    "phone"
+  ],
+  "rls": {
+    "read": false,
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
